@@ -1,0 +1,75 @@
+:root {
+    --ff-primary: 'Roboto Condensed', monospace;
+    --ff-secondary: 'Roboto Condensed', sans-seriff;
+    
+    --fw-reg: 300;
+    --fw-bold: 900;
+    
+    --clr-light: #482512;
+    --clr-dark: #fff;
+    --clr-accent: #332f2f;
+    
+    --fs-h1: 3rem;
+    --fs-h2: 2.25rem;
+    --fs-h3: 1.25rem;
+    --fs-body: 1rem;
+    
+    --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
+          0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+    margin: 0;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    color: var(--clr-dark);
+}
+
+.webcam-container {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+}
+
+.handsign-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: auto;
+    border: 1px solid #ccc;
+}
+
+.characters__img {
+    width: 50%;
+    height: auto;
+    border: 1px solid #ccc;
+}

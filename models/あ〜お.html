@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+  <title>Character Detection</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href ="css/style.css">
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
+  
+</head>
+<body class = "cover-container d-flex h-50 p-3 mx-auto flex-column">
+  <header class="masthead mr-auto ml-auto mb-auto">
+    <div class ="text-center">
+      <h3 class="masthead-brand">Learn JSL with Tensorflow</h3>
+    </div>
+    <div class="center">
+      <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link" href="jslsite/index.htm">Home</a>
+        <a class="nav-link" href="jslsite/about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id = "webcam-section">
+    <div id = "title" class="text-center">Detect Characters あ〜お</div>
+    <div id="webcam-container"></div>
+    <div id="label-container"></div>
+    <div id = "button-container">
+      <input id="start-button" type="submit" name="button" value="Start" onclick = "init()"/>
+      <input id="end-button" type="submit" name="button" value="End" onclick = "end()"/>
+    </div>
+  </section>
+
+
+  <div id="handsign-container">
+    <img src="images/a-ko.png" alt = "a-ko characters" class = "characters__img" >
+  </div>
+
+  <!-- Dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+  
+  <!-- JavaScript Code -->
+  <script src="modelAPI/a-oscript.js"></script>
+  
+</body>
+</html>
