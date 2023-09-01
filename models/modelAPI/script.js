@@ -2,7 +2,13 @@
 // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
 // the link to your model provided by Teachable Machine export panel
-const URL = "https://teachablemachine.withgoogle.com/models/NJRzKgj9U/";
+
+
+// More API functions here:
+// https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+// the link to your model provided by Teachable Machine export panel
+let URL;
 
 let model, webcam, labelContainer, maxPredictions;
 
@@ -24,13 +30,33 @@ function end() {
     labelContainer.parentNode.removeChild(labelContainer);
 }
 
+
 document.addEventListener("DOMContentLoaded", function() {
     // Code to be executed after the HTML document is fully loaded
     webcamContainer = document.getElementById("webcam-container");
     labelContainer = document.getElementById("label-container");
   });
 
-async function init() {
+async function init(characterSet) { 
+
+  switch (characterSet) {
+      case 1:
+          URL = "https://teachablemachine.withgoogle.com/models/JlNgne5qd/";
+          break;
+      case 2:
+          URL = "https://teachablemachine.withgoogle.com/models/1SDmSUxO8O/";
+          break;
+      case 3:
+          URL = "https://teachablemachine.withgoogle.com/models/U08brGajA0/";
+          break;
+      case 4:
+          URL = "https://teachablemachine.withgoogle.com/models/NJRzKgj9U/";
+          break;
+      default:
+          // Default URL if characterSet doesn't match any case
+          URL = "https://teachablemachine.withgoogle.com/models/default/";
+          break;
+  }
   const modelURL = URL + "model.json";
   const metadataURL = URL + "metadata.json";
 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Character Detection</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/4.0/examples/cover/cover.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+</head>
+<body class="cover-container d-flex h-50 p-3 mx-auto flex-column">
+    <header class="masthead mr-auto ml-auto mb-auto">
+        <div class="text-center">
+            <h1 class="masthead-brand">Learn JSL with TensorFlow</h1>
+        </div>
+        <div class="center">
+            <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link" href="../index.html">Home</a>
+                <a class="nav-link" href="../about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="webcam-section" class="text-center">
+        <div id="title">Detect Characters あ〜お</div>
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
+        <div id="button-container">
+            <button id="start-button" onclick="init(1)">Start</button>
+            <button id="end-button" onclick="end()">End</button>
+        </div>
+      </section>
+      <section id="webcam-section" class="text-center">
+        <div id="title">Detect Characters か〜こ/div>
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
+        <div id="button-container">
+            <button id="start-button" onclick="init(2)">Start</button>
+            <button id="end-button" onclick="end()">End</button>
+        </div>
+      </section>
+      <section id="webcam-section" class="text-center">
+        <div id="title">Detect Characters さ〜そ</div>
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
+        <div id="button-container">
+            <button id="start-button" onclick="init(3)">Start</button>
+            <button id="end-button" onclick="end()">End</button>
+        </div>
+      </section>
+      <section id="webcam-section" class="text-center">
+        <div id="title">Detect Characters た〜と</div>
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
+        <div id="button-container">
+            <button id="start-button" onclick="init(4)">Start</button>
+            <button id="end-button" onclick="end()">End</button>
+        </div>
+      </section>
+    
+
+    <div id="handsign-container" class="text-center">
+        <style>
+            img {
+              width: 30%;
+              height: auto;
+            }
+          </style>
+          <img src = https://files.tofugu.com/articles/japan/2016-03-02-japanese-sign-language/JSL-aiueo.jpg>
+        </div>
+    </div>
+
+    <!-- Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+
+    <!-- JavaScript Code -->
+    <script src="modelAPI/script.js"></script>
+</body>
+</html>
