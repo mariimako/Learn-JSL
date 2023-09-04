@@ -23,11 +23,12 @@ function end() {
     // Clear model references
     model = null;
   
-    // Clean up DOM elements
+    // // Clean up DOM elements
     const webcamContainer = document.getElementById("webcam-container");
     const labelContainer = document.getElementById("label-container");
     webcamContainer.parentNode.removeChild(webcamContainer);
     labelContainer.parentNode.removeChild(labelContainer);
+
 }
 
 
@@ -80,6 +81,12 @@ async function init(characterSet) {
     // and class labels
     labelContainer.appendChild(document.createElement("div"));
   }
+
+  const endButton = document.createElement("button");
+  endButton.textContent = "End";
+  endButton.addEventListener("click", end); // Call the "end" function when clicked
+  document.getElementById("end-button").appendChild(endButton); // Append the button to the body or another container
+
 }
 
 async function loop() {
