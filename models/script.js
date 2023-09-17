@@ -24,10 +24,10 @@ function end() {
     model = null;
   
     // // Clean up DOM elements
-    const webcamContainer = document.getElementById("webcam-container");
-    const labelContainer = document.getElementById("label-container");
-    webcamContainer.parentNode.removeChild(webcamContainer);
-    labelContainer.parentNode.removeChild(labelContainer);
+    // const webcamContainer = document.getElementById("webcam-container");
+    // const labelContainer = document.getElementById("label-container");
+    // webcamContainer.parentNode.removeChild(webcamContainer);
+    // labelContainer.parentNode.removeChild(labelContainer);
 
 }
 
@@ -54,7 +54,7 @@ async function init(characterSet) {
           URL = "https://teachablemachine.withgoogle.com/models/NJRzKgj9U/";
           break;
       default:
-          // Default URL if characterSet doesn't match any case
+          // Default URL 
           URL = "https://teachablemachine.withgoogle.com/models/default/";
           break;
   }
@@ -62,9 +62,6 @@ async function init(characterSet) {
   const metadataURL = URL + "metadata.json";
 
   // load the model and metadata
-  // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-  // or files from your local hard drive
-  // Note: the pose library adds "tmImage" object to your window (window.tmImage)
   model = await tmImage.load(modelURL, metadataURL);
   maxPredictions = model.getTotalClasses();
 
@@ -75,18 +72,17 @@ async function init(characterSet) {
   await webcam.play();
   window.requestAnimationFrame(loop);
 
-  // append elements to the DOM
+  // append elements to  DOM
   webcamContainer.appendChild(webcam.canvas);
   for (let i = 0; i < maxPredictions; i++) {
     // and class labels
     labelContainer.appendChild(document.createElement("div"));
   }
 
-  const endButton = document.createElement("button");
-  endButton.textContent = "End";
-  endButton.addEventListener("click", end); // Call the "end" function when clicked
-  document.getElementById("end-button").appendChild(endButton); // Append the button to the body or another container
-
+  // const endButton = document.createElement("button");
+  // endButton.textContent = "End";
+  // endButton.addEventListener("click", end); 
+  // document.getElementById("end-button").appendChild(endButton); 
 }
 
 async function loop() {
