@@ -1,9 +1,15 @@
-body {
-    margin: 0;
-    font-family: arial;
+
+html {
+    scroll-behavior: smooth;
+  
+    scroll-behavior: cubic-bezier(0.42, 0, 0.58, 1);
 }
 
-
+body {
+    margin: 0;
+    font-family: Monospace;
+    background: #333333; /* Dark Grey */
+}
 
 #button-container {
     display: flex;
@@ -24,6 +30,7 @@ button {
 
 }
 
+
 button:hover {
     background-color: #af4c4c; /* Green */
     border: none;
@@ -37,9 +44,12 @@ button:hover {
 }
 .output-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 30vh; /* 50% of viewport */
+    position: relative;
+    font-size: 20px;
+    scroll-behavior: smooth;
+    padding: 15px 32px;
 }
 
 .zone {
@@ -71,6 +81,7 @@ button:hover {
     font-size: 0.7em;
     margin: 0;
     justify-content:flex-start;
+    scroll-behavior: smooth;
 }
 
 @media only screen and (max-width: 600px) {
@@ -79,6 +90,8 @@ button:hover {
         padding: 0;
     }
 }
+
+
 
 .push {
     margin-left: auto;
@@ -110,6 +123,7 @@ a {
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    margin-top: 50px;
 }
 
 .box > img { 
@@ -128,7 +142,11 @@ footer {
     text-align: center;
     cursor:pointer;;
     font-size: 12pt;
+    color:#333333;
     background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    padding: 20px;
+    margin: 10px;
+    font-size: 12px;
 }
 
 /*https://paulund.co.uk/how-to-create-shiny-css-buttons*/

@@ -1,48 +1,38 @@
-// More API functions here:
-// https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
-// the link to your model provided by Teachable Machine export panel
-
-
-// More API functions here:
-// https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-
-// the link to your model provided by Teachable Machine export panel
+// link to  model provided by export panel
 let URL;
 
 let model, webcam, labelContainer, maxPredictions;
 
+
+
 // Load the image model and setup the webcam
 function end() {
     // Stop the webcam
-    if (webcam) {
-      webcam.stop();
-      webcam = null;
-    }
-  
-    // Clear model references
-    model = null;
-  
-    // // Clean up DOM elements
-    // const webcamContainer = document.getElementById("webcam-container");
-    // const labelContainer = document.getElementById("label-container");
-    // webcamContainer.parentNode.removeChild(webcamContainer);
-    // labelContainer.parentNode.removeChild(labelContainer);
+    webcam.stop();
+    webcam = null;
 
+    while (webcamContainer.firstChild) {
+      webcamContainer.removeChild(webcamContainer.firstChild);
+    }
 }
 
 
 document.addEventListener("DOMContentLoaded", function() {
     // Code to be executed after the HTML document is fully loaded
     webcamContainer = document.getElementById("webcam-container");
-    labelContainer = document.getElementById("label-container");
   });
 
 async function init(characterSet) { 
+  if (webcam) {
+    end(); // end previous session if existing
+  }
+
+  document.getElementById('webcam-container').scrollIntoView();
 
   switch (characterSet) {
       case 1:
-          URL = "https://teachablemachine.withgoogle.com/models/JlNgne5qd/";
+          URL = "https://teachablemachine.withgoogle.com/models/sbWUCvYv5/";
           break;
       case 2:
           URL = "https://teachablemachine.withgoogle.com/models/1SDmSUxO8O/";
@@ -58,6 +48,7 @@ async function init(characterSet) {
           URL = "https://teachablemachine.withgoogle.com/models/default/";
           break;
   }
+
   const modelURL = URL + "model.json";
   const metadataURL = URL + "metadata.json";
 
@@ -65,7 +56,7 @@ async function init(characterSet) {
   model = await tmImage.load(modelURL, metadataURL);
   maxPredictions = model.getTotalClasses();
 
-  // Convenience function to setup a webcam
+  // function to setup a webcam
   const flip = true; // whether to flip the webcam
   webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
   await webcam.setup(); // request access to the webcam
@@ -74,20 +65,25 @@ async function init(characterSet) {
 
   // append elements to  DOM
   webcamContainer.appendChild(webcam.canvas);
+
   for (let i = 0; i < maxPredictions; i++) {
     // and class labels
-    labelContainer.appendChild(document.createElement("div"));
+    let div = document.createElement("div");
+    div.classList.add("output-container");
+    div.classList.add("red");
+    webcamContainer.appendChild(div);
   }
 
-  // const endButton = document.createElement("button");
-  // endButton.textContent = "End";
-  // endButton.addEventListener("click", end); 
-  // document.getElementById("end-button").appendChild(endButton); 
+  const endButton = document.createElement("button");
+  endButton.textContent = "End";
+  endButton.classList.add("end-button");
+  endButton.addEventListener("click", end); 
+  webcamContainer.appendChild(endButton); 
 }
 
 async function loop() {
   webcam.update(); // update the webcam frame
-  await predict();
+  await predict(); 
   window.requestAnimationFrame(loop);
 }
 
@@ -95,9 +91,14 @@ async function loop() {
 async function predict() {
   // predict can take in an image, video, or canvas HTML element
   const prediction = await model.predict(webcam.canvas);
-  for (let i = 0; i < maxPredictions; i++) {
-    const classPrediction =
-      prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-    labelContainer.childNodes[i].innerHTML = classPrediction;
-  }
+  let name = prediction[0].className;
+  let maxProb = prediction[0].probability.toFixed(2);
+  for (let i = 1; i < maxPredictions; i++) {
+    if (maxProb < prediction[i].probability.toFixed(2)) {
+      maxProb = prediction[i].probability.toFixed(2);
+      name = prediction[i].className;
+    }
+      const output = "You are showing: " +  name + ", probability " + maxProb;
+      webcamContainer.childNodes[1].innerHTML = output;
+  };
 }

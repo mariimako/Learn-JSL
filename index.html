@@ -21,15 +21,13 @@
                 <li>
                     <a href="#footer">Learn More</a>
                 </li>
+                <h2 class = "title"> Learning Japan Sign Language</h2>        
                 <li class="push">
                     <a href="#footer">Contacts</a>
                 </li>
-            </ul>
+            </ul>    
         </nav>
-        <div id="webcam-container" class="output-container red"></div>
-        <div id="label-container" class="output-container red"></div>
-        <div id="end-button"></div>
-        <div id="learn" class="container zone"><img class="cover" src="./images/jsl-learn.png" /></div>
+        <!-- <div id="learn" class="container zone"><img class="cover" src="./images/jsl-learn.png" /></div> !-->
         <div class="zone blue grid-wrapper">
             <div class="box zone">
                 <div>Detect Characters あ〜お</div>
@@ -86,24 +84,20 @@
                   <button id="start-button" onclick="init(4)">Start</button>
               </div>
             </div>
-            <div class="box zone">
-              <div>Detect Characters わおん</div>
-              <div id="button-container">
-                  <button id="start-button" onclick="init(4)">Start</button>
-              </div>
-            </div>
         </div>
 
-        <footer class="footer blue">
+        <div id = "learn" class="output-container red"> Your Feed Will Appear Here! Tip: Center your sign and use a white background! </div>
+        <div id="webcam-container" class="output-container red"></div>
+
+        <footer id = "footer" class="footer blue">
             <div class="inner">
-                <p>Created by Marius Shepherd</p>
-                Find me on <a href="https://www.linkedin.com/in/mariiimako/">Linkedin</a> | <a href="https://github.com/mariimako">Github</a>
+                <a> Created by Marius Shepherd</a>
+                <a href="https://www.linkedin.com/in/mariiimako/">Find me on Linkedin</a>  <a href="https://github.com/mariimako">Github</a>
             </div>
         </footer>
 
-        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
         <script src="models/script.js"></script>
     </body>
 </html>
