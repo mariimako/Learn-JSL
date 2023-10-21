@@ -1,13 +1,14 @@
 
+* {
+    font-family: Monospace, Verdana,Helvetica,Arial,sans-serif; 
+}
+
 html {
     scroll-behavior: smooth;
-  
     scroll-behavior: cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 body {
-    margin: 0;
-    font-family: Monospace;
     background: #333333; /* Dark Grey */
 }
 
@@ -27,7 +28,6 @@ button {
     display: inline-block;
     font-size: 16px;
     border-radius: 4px;
-
 }
 
 
@@ -79,14 +79,15 @@ button:hover {
     display: flex;
     list-style: none;
     font-size: 0.7em;
-    margin: 0;
+    margin: 15px;
+    padding-right: 20px;
     justify-content:flex-start;
     scroll-behavior: smooth;
 }
 
 @media only screen and (max-width: 600px) {
     .main-nav {
-        font-size: 0.5em;
+        font-size: 0.7em;
         padding: 0;
     }
 }
@@ -113,6 +114,7 @@ a {
     justify-content: center;
     align-items: center;
     height: 75vh; /* 50% of viewport */
+    margin-top: 20px;
 }
 
 .cover {
@@ -123,7 +125,7 @@ a {
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .box > img { 
